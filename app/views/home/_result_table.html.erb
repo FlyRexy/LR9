@@ -1,0 +1,25 @@
+<% if @home.valid? %>
+  <h2>Самый длинный отрезок: <%= @home.result[0][@home.result[1]] %></h2>
+  <h2>Количество отрезков: <%= @home.result[0].compact.length %></h2>
+  <h1>Все отрезки:</h1>
+  <table class = "table table-dark" style = "width: 50%">
+    <tr>
+      <td style = "width: 50px">№ отрезка</td>
+      <td style = "width: 80%">Отрезок</td>
+    </tr>
+    <% i = 0 %>
+    <% while i < @home.result[0].compact.length do %>
+      <tr>
+        <td><%= i + 1 %></td>
+        <td><%= @home.result[0].compact[i] %></td>
+      </tr>
+      <% i += 1 %>
+    <% end %>
+  </table>
+  <% else %>
+  <% @home.errors.each do |error| %>
+    <ul class="list-group">
+      <li class="list-group-item"><%= error.full_message %></li>
+    </ul>
+  <% end %>
+<% end %>
