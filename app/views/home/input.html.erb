@@ -1,0 +1,25 @@
+<div class = 'container'>
+  <div class = "row">
+    <div class = 'col-3'>
+      <br>
+      <%= form_with url: result_path do |form|%>
+        <%= form.label("Input number of elements in array")%>
+        <br>
+        <%= form.number_field :num, in: 1..300, step: 1, class: "form-control form-control-dark text-bg-dark" %>
+        <br>
+        <%= form.label("Input elements of array")%>
+        <br>
+        <%= form.text_area :arr, size: "15x1", class: "form-control form-control-dark text-bg-dark"%>
+        <br>
+        <%= form.button "Get result", class: "glow-on-hover", id: "my_button"%>
+      <% end %>
+    </div>
+    <br>
+    <br>
+    <div class = "col-6">
+      <div style = "padding-top: 15px; padding-left: 50px" id = "result_area">
+
+      </div>
+    </div>
+  </div>
+</div>
